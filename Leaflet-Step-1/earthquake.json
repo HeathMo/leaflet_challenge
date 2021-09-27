@@ -1,0 +1,181 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "generated": 1632691421000,
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson",
+        "title": "USGS Significant Earthquakes, Past Week",
+        "status": 200,
+        "api": "1.10.3",
+        "count": 4
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 5.7,
+                "place": "8 km W of Talisay, Philippines",
+                "time": 1632676327014,
+                "updated": 1632688243518,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000fen1",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000fen1.geojson",
+                "felt": 179,
+                "cdi": 6.1,
+                "mmi": 5.16,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 609,
+                "net": "us",
+                "code": "7000fen1",
+                "ids": ",us7000fen1,",
+                "sources": ",us,",
+                "types": ",dyfi,losspager,origin,phase-data,shakemap,",
+                "nst": null,
+                "dmin": 8.422,
+                "rms": 1.22,
+                "gap": 86,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 5.7 - 8 km W of Talisay, Philippines"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.5419,
+                    13.9269,
+                    98.44
+                ]
+            },
+            "id": "us7000fen1"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 6.5,
+                "place": "78 km SW of Jiquilillo, Nicaragua",
+                "time": 1632304628560,
+                "updated": 1632627131798,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000fdds",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000fdds.geojson",
+                "felt": 45,
+                "cdi": 7,
+                "mmi": 4.501,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 1,
+                "sig": 682,
+                "net": "us",
+                "code": "7000fdds",
+                "ids": ",pt21265000,at00qztyb6,us7000fdds,",
+                "sources": ",pt,at,us,",
+                "types": ",dyfi,ground-failure,impact-link,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": null,
+                "dmin": 0.973,
+                "rms": 1.18,
+                "gap": 118,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 6.5 - 78 km SW of Jiquilillo, Nicaragua"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.8542,
+                    12.1598,
+                    30.74
+                ]
+            },
+            "id": "us7000fdds"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 5.9,
+                "place": "38 km S of Mount Buller, Australia",
+                "time": 1632266153350,
+                "updated": 1632655948256,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000fd9v",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000fd9v.geojson",
+                "felt": 5799,
+                "cdi": 5.2,
+                "mmi": 7.376,
+                "alert": "yellow",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 1170,
+                "net": "us",
+                "code": "7000fd9v",
+                "ids": ",us7000fd9v,",
+                "sources": ",us,",
+                "types": ",dyfi,ground-failure,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": null,
+                "dmin": 0.698,
+                "rms": 0.75,
+                "gap": 41,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 5.9 - 38 km S of Mount Buller, Australia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.3633,
+                    -37.491,
+                    10
+                ]
+            },
+            "id": "us7000fd9v"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 6.4,
+                "place": "73 km W of Talcahuano, Chile",
+                "time": 1632230072025,
+                "updated": 1632683994129,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000fd4k",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000fd4k.geojson",
+                "felt": 83,
+                "cdi": 6.4,
+                "mmi": 4.74,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 683,
+                "net": "us",
+                "code": "7000fd4k",
+                "ids": ",us7000fd4k,",
+                "sources": ",us,",
+                "types": ",dyfi,ground-failure,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": null,
+                "dmin": 2.14,
+                "rms": 0.7,
+                "gap": 110,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 6.4 - 73 km W of Talcahuano, Chile"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9329,
+                    -36.7771,
+                    18.8
+                ]
+            },
+            "id": "us7000fd4k"
+        }
+    ],
+    "bbox": [
+        -87.8542,
+        -37.491,
+        10,
+        146.3633,
+        13.9269,
+        98.44
+    ]
+}

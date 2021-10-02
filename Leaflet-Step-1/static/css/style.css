@@ -1,12 +1,9 @@
-body {
-    padding: 0;
-    margin: 0;
-  }
 
-#map,
-body,
-html {
+#map {
+  width: 100%;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .info {
@@ -16,7 +13,8 @@ html {
   }
   
   .legend {
-    line-height: 25px;
+    padding: 10px;
+    line-height: 20px;
     color: #000000;
   }
   
@@ -26,4 +24,15 @@ html {
     float: right;
     margin-right: 10px;
     opacity: 0.75;
+  }
+
+  .leaflet-bottom.leaflet-right {
+    width: 90%;
+  }
+
+  .leaflet-control-container.leaflet-timeline-controls {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 15px;
   }

@@ -3,22 +3,25 @@ console.log("Step 1 working");
 
 //Data
 var data = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson"
-// var platesURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
+var platesURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
 
 var quakes = new L.LayerGroup();
-// var plates = new L.LayerGroup();
+var plates = new L.LayerGroup();
 
 //Background maps
-// var satMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png", {
-//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors",
-//     // maxZoom: 18,
-//     // id: "mapbox.satellite",
-//     // accessToken: API_KEY
-// });
+var satMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVhdGhtbyIsImEiOiJja3U5eXc1aHEwMHhmMm9tZXB6bG44Y2YyIn0.sW6rdM4qYa9tLnmC2id_qQ", {
+    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors",
+    tileSize: 512,
+    maxZoom: 18,
+    zoomOffset: -1,
+    id: "mapbox/satellite-v9",
+    // accessToken: API_KEY
+});
 
 var myMap = L.map("map", {
     center: [37.09, -95.71],
     zoom: 2,
+    layers: [satMap, quakes]
 });
 
 var greyscaleMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVhdGhtbyIsImEiOiJja3U5eXc1aHEwMHhmMm9tZXB6bG44Y2YyIn0.sW6rdM4qYa9tLnmC2id_qQ", {
@@ -28,35 +31,35 @@ var greyscaleMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/
     zoomOffset: -1,
     id: "mapbox/light-v10",
     // accessToken: API_KEY,
-}).addTo(myMap);
+});
 
-// var outdoorsMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-//     maxZoom: 18,
-//     id: "mapbox.outdoors",
-//     accessToken: API_KEY
-// });
+var outdoorsMap = L.tileLayer("https://api.mapbox.com/v1/{id}/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVhdGhtbyIsImEiOiJja3U5eXc1aHEwMHhmMm9tZXB6bG44Y2YyIn0.sW6rdM4qYa9tLnmC2id_qQ", {
+    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    tileSize: 512,
+    maxZoom: 18,
+    zoomOffset: -1,
+    id: "mapbox/outdoors-v11",
+    // accessToken: API_KEY
+});
 
 //Base maps for base layers
-// var baseMaps = {
-//     // "Satellite": satMap,
-//     "Greyscale": greyscaleMap,
-//     // "Outdoors": outdoorsMap
-// };
+var baseMaps = {
+    "Satellite": satMap,
+    "Greyscale": greyscaleMap,
+    "Outdoors": outdoorsMap
+};
 
-// //Overlay maps for overlay layers
-// var overlayMaps = {
-//     "Earthquakes": quakes,
-//     // "Plates": plates
-// };
-
-
+//Overlay maps for overlay layers
+var overlayMaps = {
+    "Earthquakes": quakes,
+    "Plates": plates
+};
 
 // greyscaleMap.addTo(myMap)
 
 console.log(data)
 
-// L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 d3.json(data,
     function(quakeData) {
@@ -97,8 +100,6 @@ d3.json(data,
         return magnitude * 4;
     };
 
-    // Is this correct for coordinates from the JSON
-    // var latlng = geometry.point.coordinates 
 
     L.geoJSON(quakeData, {
         pointToLayer: function (feature, latlng) {
@@ -117,6 +118,15 @@ d3.json(data,
     quakes.addTo(myMap);
 
     // console.log(quakes);
+
+    d3.json(platesURL, function(plateData) {
+        L.geoJSON(plateData, {
+            color: "#DC143C",
+            weight: 2
+        })
+    }).addTo(plates);
+
+    plates.addTo(myMap);
 
     var legend = L.control({position: "bottomright"});
 

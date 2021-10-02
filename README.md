@@ -4,7 +4,7 @@
 
 The objective of this challenge was to utilize `html` and `JavaScript` to visualize recent earthquake data from around the world.
 
-### Basic Visualization
+## Basic Visualization
 
 1. Data set obtained from [USGS](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
 
@@ -18,3 +18,10 @@ The objective of this challenge was to utilize `html` and `JavaScript` to visual
 
 ![img1](images/part1_screenshot.png)
 
+## More Data (Optional)
+
+1. Plot a second data set on the map - for this purpose, used tetonic plate information.
+2. Add multiple base maps to chose from that can be overlay and turned on or off.
+3. Add layer controls to the map.
+
+![img2](images/part2_screenshot.png)

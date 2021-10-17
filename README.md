@@ -16,7 +16,7 @@ The objective of this challenge was to utilize `html` and `JavaScript` to visual
 
 3. Create a map using Leaflet plots of the earthquake data based on their longitude and latitude.  The map should include a legend and popups.
 
-![img1](images/part1_screenshot.png)
+![img1](images/new_part_1_screenshot.png)
 
 ## More Data (Optional)
 

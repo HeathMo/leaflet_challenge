@@ -2,7 +2,7 @@
 console.log("Step 1 working");
 
 //Data
-var data = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+var quakeData = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 // var platesURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
 
 var quakes = new L.LayerGroup();
@@ -54,12 +54,12 @@ var greyscaleMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/
 
 // greyscaleMap.addTo(myMap)
 
-console.log(data)
+console.log(quakeData)
 
 // L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
-d3.json(data,
-    function(quakeData) {
+d3.json(quakeData, 
+    function(data) {
 
     function mapStyles(feature) {
         return {
@@ -74,20 +74,13 @@ d3.json(data,
     }
 //if then statements for a getColors function
     function colors(magnitude) {
-        switch (true) {
-            case magnitude > 5:
-                return "red";
-            case magnitude > 4: 
-                return "orange";
-            case magnitude > 3:
-                return "yellow";
-            case magnitude > 2:
-                return "green";
-            case magnitude > 1:
-                return "blue";
-            default:
+            if (magnitude > 5){return "red"};
+            if (magnitude > 4){return "orange"};
+            if (magnitude > 3){return "yellow"};
+            if (magnitude > 2){return "green"};
+            if (magnitude > 1){return "blue"};
                 return "grey";
-        }
+        
     }
 
     function markerSize(magnitude) {
@@ -100,7 +93,7 @@ d3.json(data,
     // Is this correct for coordinates from the JSON
     // var latlng = geometry.point.coordinates 
 
-    L.geoJSON(quakeData, {
+    L.geoJSON(data, {
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng);
         },
@@ -128,6 +121,7 @@ d3.json(data,
         div.innerHTML += "<h3>Magnitude</h3>"
         
         for (var i = 0; i < magLevels.length; i++) {
+            console.log(colors([i] + 1))
             div.innerHTML +=
             "<i style='background: " + colors(i + 1) +
             "'></i>" + magLevels[i] + (magLevels[i + 1] ? "&ndash;" + magLevels[i + 1] + "<br>" : "+");
